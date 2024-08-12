@@ -71,7 +71,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Boolean verifyPasswordKey(Long userId, String password) {
         LOGGER.info("[getSignInResult] signDataHandler 로 회원 정보 요청");
-        User user = userRepository.getById(userId);
+        User user = userRepository.findById(userId).orElseThrow();
         LOGGER.info("[getSignInResult] Id : {}", userId);
 
         LOGGER.info("[getSignInResult] 패스워드 비교 수행");
