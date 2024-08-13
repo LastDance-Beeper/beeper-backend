@@ -55,8 +55,11 @@ dependencies {
     implementation 'javax.xml.bind:jaxb-api:2.4.0-b180830.0359'
 
     //websocket
-    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    implementation 'org.springframework.boot:spring-boot-starter-websocket:3.3.2'
 
+    //firebase
+    implementation 'com.google.firebase:firebase-admin:8.1.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
 
 }
 
