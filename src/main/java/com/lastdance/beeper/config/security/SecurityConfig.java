@@ -30,7 +30,7 @@ public class SecurityConfig {
                 .sessionManagement(sessionManagement ->
                         sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // JWT Token 인증방식으로 세션은 필요 없으므로 비활성화
                 .authorizeHttpRequests(auth ->
-                        auth.requestMatchers("/auth/**", "/exception/**", "/swagger-ui/**").permitAll()
+                        auth.requestMatchers("/auth/**", "/exception/**", "/swagger-ui/**", "/signal").permitAll()
                                 .anyRequest().hasRole("ADMIN")) // 나머지 요청은 인증된 ADMIN만 접근 가능
                 .exceptionHandling(exceptions ->
                         exceptions.accessDeniedHandler(new CustomAccessDeniedHandler())
