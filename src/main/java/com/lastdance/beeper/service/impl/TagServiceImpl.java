@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-@Transactional
 @Service
+@Transactional
 public class TagServiceImpl implements TagService {
     private TagRepository tagRepository;
 

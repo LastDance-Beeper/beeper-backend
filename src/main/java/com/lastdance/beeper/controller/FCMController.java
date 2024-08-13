@@ -5,10 +5,13 @@ import com.lastdance.beeper.data.dto.PostTokenRequest;
 import com.lastdance.beeper.service.FCMService;
 import com.lastdance.beeper.service.impl.FCMServiceImpl;
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;/* FCM Token 서버 저장 API */
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/fcm")
+@Slf4j
 public class FCMController {
     private FCMServiceImpl fcmServiceimpl;
     public FCMController(FCMServiceImpl fcmServiceimpl) {

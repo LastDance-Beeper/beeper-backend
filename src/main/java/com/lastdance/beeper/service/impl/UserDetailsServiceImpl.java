@@ -11,8 +11,9 @@ import org.springframework.stereotype.Service;
 import jakarta.transaction.Transactional;
 
 
-@Transactional
+
 @Service
+@Transactional
 public class UserDetailsServiceImpl implements UserDetailsService {
     private final Logger logger = LoggerFactory.getLogger(UserDetailsServiceImpl.class);
     private final UserRepository userRepository;
