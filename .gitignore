@@ -38,3 +38,4 @@ out/
 application-auth.properties
 application-DB.properties
 application-S3.properties
+Dockerfile

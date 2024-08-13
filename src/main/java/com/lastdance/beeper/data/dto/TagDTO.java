@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 public class TagDTO {
 
     @Getter
@@ -26,7 +28,17 @@ public class TagDTO {
     @NoArgsConstructor
     @AllArgsConstructor
     @Builder
+    public static class requestList {
+        private Long id;
+    }
+
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
     public static class request {
         private String name;
     }
+
+
 }

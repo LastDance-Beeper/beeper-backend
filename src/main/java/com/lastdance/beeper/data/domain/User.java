@@ -50,9 +50,6 @@ public class User extends Base implements UserDetails{
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roles = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user_tag")
-    private List<UserTag> userTags = new ArrayList<>();
-
     @Builder
     public User(
             String phoneNumber,

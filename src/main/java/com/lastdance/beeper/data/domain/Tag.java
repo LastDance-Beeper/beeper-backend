@@ -22,9 +22,6 @@ public class Tag extends Base{
     @Column(nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "user_tag")
-    private List<UserTag> userTags = new ArrayList<>();
-
     @Builder
     public Tag(String name) {
         this.name = name;
