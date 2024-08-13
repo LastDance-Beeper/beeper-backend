@@ -26,7 +26,7 @@ public class ComplaintPost extends Base{
     @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
 
-    @Column(name = "record_file_url", columnDefinition = "TEXT", nullable = false)
+    @Column(name = "record_file_url", columnDefinition = "TEXT")
     private String recordFileUrl;
 
     //통화시간(분으로 환산)

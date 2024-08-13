@@ -16,6 +16,7 @@ public interface UserService {
     UserDTO.Info findOne(String phoneNumber);
     void delete(Long userId) throws Exception;
 
+    UserDTO.Info updateFlag(Long userId);
     UserDTO.Info update(Long userId, UserDTO.RequestForUpdate requestDTO, MultipartFile multipartFile) throws Exception;
     UserDTO.Info updatePasswordKey(Long userId, String PasswordKey);
 
