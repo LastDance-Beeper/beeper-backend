@@ -58,6 +58,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UserDTO.Info updateFlag(Long userId){
+        User user = userRepository.findById(userId).orElseThrow(()->new RuntimeException("User가 존재하지 않습니다."));
+
+        if(!user.getAlarmStatus()){
+            user.updateFlag(true);
+        }
+        user.updateFlag(false);
+        userRepository.save(user);
+        return new UserDTO.Info(user);
+    }
+
+    @Override
     public UserDTO.Info updatePasswordKey(Long userId, String passwordKey) {
         User user = userRepository.findById(userId).orElseThrow(()->new RuntimeException("User가 존재하지 않습니다."));
 
@@ -100,6 +112,7 @@ public class UserServiceImpl implements UserService {
                 .roles(Collections.singletonList("ROLE_ADMIN"))
                 .point(0L)
                 .image(null)
+                .alarmStatus(true)
                 .build();
 
         User savedUser = userRepository.save(user);

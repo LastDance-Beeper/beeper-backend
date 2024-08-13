@@ -82,6 +82,10 @@ public class User extends Base implements UserDetails{
         this.password = passwordKey;
     }
 
+    public void updateFlag(Boolean alarmStatus){
+        this.alarmStatus = alarmStatus;
+    }
+
 
     //jwt token setting
     @Override
