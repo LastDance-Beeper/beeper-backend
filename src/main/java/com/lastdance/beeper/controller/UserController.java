@@ -39,7 +39,7 @@ public class UserController {
         return ResponseEntity.ok(ResponseDTO.ofSuccess("탈퇴가 완료되었습니다."));
     }
 
-    @PutMapping(value="/update/{id}")
+    @PutMapping(value="/alarm-status/user-id/{id}")
     public ResponseEntity<ResponseDTO<UserDTO.Info>>updateStatus(@PathVariable Long id)throws Exception{
        UserDTO.Info getUserDTO = userService.updateFlag(id);
        return ResponseEntity.ok(ResponseDTO.ofSuccessWithData(getUserDTO));

@@ -4,13 +4,11 @@ import com.google.auth.oauth2.AccessToken;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
-import com.lastdance.beeper.data.domain.User;
 import com.lastdance.beeper.data.repository.UserRepository;
 import com.lastdance.beeper.service.FCMService;
 import org.springframework.stereotype.Service;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 @Service
