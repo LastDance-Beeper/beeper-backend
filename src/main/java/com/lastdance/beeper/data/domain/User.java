@@ -1,7 +1,6 @@
 package com.lastdance.beeper.data.domain;
 
 import com.lastdance.beeper.data.dto.UserDTO;
-import com.lastdance.beeper.data.util.Tag;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import jakarta.persistence.*;
@@ -9,13 +8,13 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.*;
 import java.util.stream.Collectors;
+
 @Getter
 @NoArgsConstructor(force = true)
 @ToString
@@ -38,15 +37,21 @@ public class User extends Base implements UserDetails{
     @Column(name = "password",nullable = false, columnDefinition="TEXT" )
     private String password;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    private List<String> roles = new ArrayList<>();
-
     @Column(name = "point", nullable = false)
     private Long point;
 
     @Column(name = "image_url",columnDefinition="TEXT") //image default null
     private String image;
 
+    //알람 동의 여부
+    @Column(name = "alarm_status", nullable = false)
+    private Boolean alarmStatus;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<String> roles = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user_tag")
+    private List<UserTag> userTags = new ArrayList<>();
 
     @Builder
     public User(
@@ -55,6 +60,7 @@ public class User extends Base implements UserDetails{
             String password,
             String nickname,
             String image,
+            Boolean alarmStatus,
             List<String> roles,
             Long point
     )
@@ -64,6 +70,7 @@ public class User extends Base implements UserDetails{
         this.nickname = nickname;
         this.image = image;
         this.roles = roles;
+        this.alarmStatus = alarmStatus;
         this.point = point;
         this.birthDate = birthDate;
     }
