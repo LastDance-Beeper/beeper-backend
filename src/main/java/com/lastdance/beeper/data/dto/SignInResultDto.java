@@ -2,7 +2,8 @@ package com.lastdance.beeper.data.dto;
 
 import lombok.*;
 
-@Data
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString

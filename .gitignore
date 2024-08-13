@@ -39,3 +39,4 @@ application-auth.properties
 application-DB.properties
 application-S3.properties
 firebase_service_key.json
+Dockerfile
